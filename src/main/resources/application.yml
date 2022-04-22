@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: spring-config-server
+  profiles:
+    active: composite
+  cloud:
+    config:
+      server:
+        composite:
+          -
+            type: git
+            uri: https://github.com/ijayakantha/spring-config-server
+            search-paths: server-config/
+          - type: git
+            uri: https://github.com/debbielee1996/feedback-ms
+            search-paths: src/main/resources/
+server:
+  port: 8888
+management:
+  security:
+    enabled: false
